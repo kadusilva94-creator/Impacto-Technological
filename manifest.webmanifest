@@ -1,0 +1,17 @@
+{
+  "name": "Impacto — Levantamento de Campo",
+  "short_name": "Levantamento",
+  "description": "Levantamento de campo NR-12, NR-33, NR-35 e cotação de fabricação, com fotos e croquis cotados.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E1A21",
+  "theme_color": "#0E1A21",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "icone-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icone-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icone-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
