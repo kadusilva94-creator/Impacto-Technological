@@ -1,5 +1,5 @@
 /* Service worker — deixa o app funcionar sem internet depois da primeira abertura */
-const CACHE = 'levantamento-v1';
+const CACHE = 'levantamento-v2';
 const ARQUIVOS = [
   './', './index.html', './manifest.webmanifest',
   './icone-192.png', './icone-512.png', './icone-maskable.png'
