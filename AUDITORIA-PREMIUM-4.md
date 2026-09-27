@@ -1,4 +1,4 @@
-# Impacto — auditoria de software Premium 4.1
+# Impacto — auditoria de software Premium 4.2
 
 Data: 27/09/2026. Base: pacote Premium 3 entregue anteriormente. O banco IndexedDB `campo_nr_v2`, seus quatro repositórios e o formato de backup versão 3 foram preservados.
 
@@ -53,7 +53,7 @@ O app continua local: não oferece sincronização automática entre dispositivo
 
 ## Atualização
 
-Siga `ATUALIZAR-GITHUB.txt`. Envie os 18 arquivos do pacote para a raiz do repositório. Esta edição para celular não contém subpastas. Não substitua apenas `sw.js`. Abra o site conectado após a atualização e confira a identificação PREMIUM 4.1.
+Siga `ATUALIZAR-GITHUB.txt`. Envie os 18 arquivos do pacote para a raiz do repositório. Esta edição para celular não contém subpastas. Não substitua apenas `sw.js`. Abra o site conectado após a atualização e confira a identificação PREMIUM 4.2.
 
 A publicação no GitHub não foi realizada nesta entrega. O acesso de gravação disponível anteriormente retornou HTTP 403; o ZIP permite atualização manual.
 
@@ -71,3 +71,27 @@ As licenças acompanham o pacote na mesma pasta dos demais arquivos. Nenhum serv
 Os recursos de PDF, ZIP, interface e croqui da versão 4 foram mantidos. Bibliotecas e fontes agora ficam na raiz, facilitando a seleção de arquivos pelo Android/iPhone. Referências do HTML, carregamento das fontes e cache offline foram atualizados juntos. O novo cache usa `impacto-campo-premium-v4-1`. O banco de dados local não foi renomeado.
 
 Validação adicional da edição 4.1: scripts analisados, 18 arquivos sem subpastas, nenhum recurso HTTP ausente, backup restaurado, dados preservados ao recarregar, fontes/bibliotecas no novo cache e geração real de PDF/ZIP com rede desativada. ZIP gerado conferido por CRC, cabeçalho PDF e conteúdo do backup. Nenhum erro de JavaScript foi registrado.
+
+## Correção 4.2 — compartilhamento de ZIP
+
+Relato recebido: o PDF abre o menu nativo no aparelho, mas o ZIP não abre o menu e o usuário fica com o caminho de download. A documentação e a implementação do Chromium para Android incluem PDF, mas excluem `.zip` e `application/zip` da lista de compartilhamento de arquivos. Isso explica a diferença e é compatível com o relato, embora o aparelho do usuário não tenha sido inspecionado diretamente.
+
+A versão 4.1 verificava `navigator.canShare`, mas deixava um botão desativado com orientação genérica. Além disso, ao chamar `navigator.share`, bloqueava Fechar até a Promise concluir, criando um bloqueio real da interface caso o sistema não respondesse.
+
+Mudanças da versão 4.2:
+
+- Detecta capacidade por arquivo; quando ZIP não é aceito, mostra uma ação explícita de salvar e instruções para compartilhar pelo gerenciador de arquivos.
+- Não faz download automático nem tenta alterar extensão/MIME para contornar a restrição do navegador. O pacote permanece um ZIP verdadeiro.
+- Reaproveita o PDF já gerado dentro do ZIP para a opção “Compartilhar somente o PDF”, com indicação clara de que os anexos editáveis não são enviados nessa opção.
+- Fechar, salvar e navegar continuam disponíveis mesmo com uma solicitação nativa sem resposta. Após 12 segundos, mostra orientação sobre a espera. A API nativa não oferece cancelamento programático; uma segunda solicitação não é disparada enquanto a primeira continua pendente.
+- Impede que respostas tardias de um compartilhamento antigo sobrescrevam as mensagens de uma nova exportação.
+- Mantém o gerador principal de PDF, as bibliotecas, fontes e o banco local da versão 4.1.
+
+Referências primárias verificadas em 27/09/2026:
+- Lista de formatos: https://chromium.googlesource.com/chromium/src/+/HEAD/third_party/blink/renderer/modules/webshare/FILE_TYPES.md
+- Implementação Android: https://chromium.googlesource.com/chromium/src/+/HEAD/components/browser_ui/webshare/android/java/src/org/chromium/components/browser_ui/webshare/ShareServiceImpl.java
+- Promise de compartilhamento e erros: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share
+
+O compartilhamento direto do ZIP não foi habilitado no Chrome/Android: essa restrição continua pertencendo ao navegador. Não foram enviados arquivos a contatos.
+
+Testes adicionais 4.2 concluídos: ZIP recusado e aceito por `canShare`; nenhum download automático; compartilhamento do PDF interno com ativação no clique e cabeçalho PDF válido; download explícito; cancelamento e recusa nativa; Promise nativa pendente por mais de 12 segundos com fechamento e navegação disponíveis; resposta tardia isolada da nova exportação; PDF principal ainda compartilhável; geração offline; CRC do ZIP e backup íntegros. Teste visual em 390 × 844 confirmou o botão de fechar visível no topo e operável enquanto a solicitação nativa permanece pendente. Nenhum erro de JavaScript. As respostas da API nativa foram simuladas; o WhatsApp real não foi acionado.

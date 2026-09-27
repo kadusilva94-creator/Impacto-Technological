@@ -1,50 +1,60 @@
-IMPACTO — PREMIUM 4.1 — ENVIO PELO CELULAR
+IMPACTO — PREMIUM 4.2 — CORREÇÃO DO FLUXO DE COMPARTILHAMENTO
 
-Este pacote contém 18 arquivos, TODOS NA MESMA PASTA. Não há pastas vendor/assets.
-As funções da versão Premium 4 foram preservadas; mudou a organização dos arquivos
-para permitir o envio pelo seletor de arquivos do celular.
+Este pacote contém 18 arquivos, todos na mesma pasta, como a versão 4.1.
 
-COMO ATUALIZAR
-1. Guarde um backup .JSON no aplicativo atual antes de atualizar.
-2. No GitHub, cancele/volte da seleção anterior sem confirmar Commit changes.
-3. Baixe este novo ZIP. Em Meus Arquivos > Downloads, toque nele e escolha Extrair.
-4. No GitHub, abra o repositório Impacto-Technological na raiz, aba Code.
-5. Use Upload files > choose your files. Abra a nova pasta extraída e selecione
-   TODOS os 18 arquivos de dentro dela. O arquivo ZIP fechado não deve ser enviado.
-6. Confirme em Commit changes. Aguarde a publicação do GitHub Pages concluir.
-7. Abra o app conectado à internet. Feche todas as janelas do app e abra novamente.
-   O cabeçalho deve mostrar PREMIUM 4.1.
+ATUALIZAR PELO CELULAR
+1. Guarde um backup .JSON no aplicativo atual.
+2. Baixe este ZIP e escolha Extrair em Meus Arquivos > Downloads.
+3. No GitHub, abra a raiz do repositório Impacto-Technological e use Upload files.
+4. Entre na nova pasta extraída e selecione TODOS os 18 arquivos. Não envie o ZIP fechado.
+5. Confirme em Commit changes e aguarde a publicação do GitHub Pages.
+6. Abra o app conectado à internet; feche todas as janelas do app e abra novamente.
+   O cabeçalho deve mostrar PREMIUM 4.2.
 
-Não é necessário apagar arquivos antigos ou pastas anteriores do repositório.
-Os arquivos de mesmo nome serão substituídos pelo novo envio. Não apague o banco
-local, não limpe os dados do navegador e não desinstale o app para atualizar.
-Use o mesmo endereço de sempre para continuar acessando seus levantamentos.
+Mantenha o mesmo endereço do site. Não limpe o armazenamento do navegador nem
+reinstale o app para atualizar. Não é necessário apagar arquivos do repositório.
 
-PDF E WHATSAPP
-Exportar > Gerar PDF e compartilhar > aguardar "Arquivo pronto" > Compartilhar.
-No menu do aparelho, escolha WhatsApp, o destinatário e confirme o envio.
-O PDF também pode ser visualizado ou baixado. Se o menu não aceitar o arquivo,
-baixe o documento e use WhatsApp > Anexar > Documento.
-O segundo toque em Compartilhar é necessário após preparar o arquivo.
+O QUE FOI AJUSTADO
+O compartilhamento normal de PDF mantém o mesmo gerador e a chamada ao menu nativo.
+Ao gerar ZIP, o aplicativo identifica se o navegador aceita compartilhar esse formato.
+- Se aceitar: mostra Compartilhar ZIP.
+- Se não aceitar: mostra Salvar ZIP no aparelho e os passos para enviar por Arquivos.
+Não há download automático nem tentativa de disfarçar o formato do ZIP.
 
-ZIP COMPLETO
-Inclui PDF, CSV, imagens por área/item e backup JSON com croquis editáveis.
-Todos os itens são exportados, mesmo com filtros ativos. Os custos registrados
-para fabricação também são incluídos. Use PDF em qualidade equilibrada para
-reduzir o tamanho dos arquivos. O envio real depende do menu do seu aparelho.
+COMO ENVIAR O ZIP NO CHROME/ANDROID
+A implementação atual do Chrome para Android permite PDF, mas não inclui ZIP
+na lista de formatos aceitos pelo menu de compartilhamento da página.
+O aplicativo web não consegue habilitar essa permissão por conta própria.
+1. No app, gere o ZIP e toque em Salvar ZIP no aparelho.
+2. Abra Meus Arquivos ou Arquivos > Downloads.
+3. Segure o ZIP e escolha Compartilhar > WhatsApp.
+Também é possível abrir a conversa no WhatsApp e usar Anexar > Documento.
+No iPhone, quando o navegador não aceitar ZIP diretamente, use Arquivos > Downloads.
 
-OFFLINE E BACKUP
-Abra o app online após atualizar para que o novo pacote seja armazenado.
-Depois, PDF e ZIP são gerados localmente. Mantenha o app aberto até concluir.
-Exporte um backup .JSON ao final de cada visita. Os dados ficam neste navegador;
-não há sincronização automática entre dispositivos.
-Backups válidos das versões 2 e 3 continuam aceitos.
+COMPARTILHAR SOMENTE O PDF DO PACOTE
+O ZIP já contém um PDF. O app mantém esse PDF pronto e permite compartilhá-lo
+pelo botão Compartilhar somente o PDF, se o navegador aceitar.
+Esse envio inclui apenas o relatório: não envia o backup editável e os anexos
+originais como arquivos separados. O ZIP completo continua disponível para salvar.
 
-CROQUI
-Zoom +/−, pinça, mover e ajustar à tela. Cotas positivas em milímetros, formas,
-texto, cores, espessuras, grade, desfazer/refazer e edição sobre foto.
-As coordenadas e cotas permanecem iguais ao ampliar ou reduzir a visualização.
+SE O MENU DO APARELHO NÃO RESPONDER
+O app informa a espera e mantém Salvar e Fechar disponíveis.
+Uma solicitação nativa pendente não bloqueia a navegação do aplicativo.
+Enquanto o sistema não concluir a solicitação, novas chamadas de compartilhamento
+ficam desativadas para evitar duas solicitações simultâneas.
+O app não confirma entrega ao destinatário e nunca envia a contatos automaticamente.
 
-O HTML Levantamento_Campo_NR12_NR33_NR35.html é uma edição autocontida adicional.
-O site/PWA utiliza index.html. Prefira o site HTTPS ao arquivo local no celular.
-Consulte AUDITORIA-PREMIUM-4.md para testes e limitações.
+DADOS E OFFLINE
+O banco campo_nr_v2 e os backups existentes foram preservados.
+Abra online uma vez após atualizar para carregar o novo cache. Depois, PDF e ZIP
+continuam sendo gerados no aparelho. Guarde um backup externo ao fim da visita.
+Arquivos grandes continuam sujeitos à memória e aos limites do dispositivo.
+
+O PDF, o ZIP e o backup incluem todos os itens, mesmo com filtros ativos, inclusive
+os custos de fabricação registrados. O backup mantém as formas e fotos de fundo.
+
+TESTES
+Fluxos de ZIP permitido/bloqueado, cancelamento, erro nativo e solicitação que não
+conclui foram simulados em Chromium com tela de celular. PDF e ZIP reais foram
+gerados offline. Não foi enviado arquivo para WhatsApp real.
+Veja AUDITORIA-PREMIUM-4.md para detalhes e referências.
