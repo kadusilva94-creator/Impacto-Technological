@@ -1,0 +1,91 @@
+IMPACTO — LEVANTAMENTO DE CAMPO PREMIUM 4
+
+ANTES DE ATUALIZAR
+No aplicativo atual, abra Exportar e guarde um backup .JSON.
+Os registros ficam neste navegador/aparelho. Não limpe os dados do navegador
+nem desinstale o aplicativo para atualizar. Mantenha o mesmo endereço do site.
+
+ATUALIZAÇÃO MANUAL NO GITHUB
+1. Extraia o ZIP recebido.
+2. Abra github.com/kadusilva94-creator/Impacto-Technological, na aba Code.
+3. Selecione Add file > Upload files.
+4. Envie o CONTEÚDO extraído para a raiz do repositório, preservando as pastas:
+   index.html
+   sw.js
+   manifest.webmanifest
+   pdf-report.js
+   export-center.js
+   vendor/ (bibliotecas e licenças)
+   assets/ (fontes e licença)
+   icone-192.png, icone-512.png, icone-maskable.png
+   Levantamento_Campo_NR12_NR33_NR35.html
+   Os arquivos de instruções e auditoria também podem ser enviados.
+5. Confirme em Commit changes e aguarde a publicação do GitHub Pages.
+6. Abra o endereço habitual do aplicativo conectado à internet. Feche todas
+   as janelas do app e abra novamente. O cabeçalho deve mostrar PREMIUM 4.
+7. Gere um PDF de teste e confira os registros antes da próxima visita.
+
+IMPORTANTE: não basta substituir sw.js ou index.html. As pastas vendor e assets
+e os dois novos arquivos .js são necessários. Não envie apenas o ZIP fechado
+nem crie uma pasta extra acima de index.html. No computador, é possível arrastar
+as pastas inteiras para a página de upload do GitHub.
+
+PDF E WHATSAPP
+Exportar > Gerar PDF e compartilhar.
+Aguarde a indicação "Arquivo pronto". O PDF é gerado dentro do app, sem precisar
+abrir uma janela de impressão. Escolha:
+- Compartilhar • WhatsApp: abre o menu de compartilhamento do aparelho.
+  Selecione WhatsApp, o destinatário e confirme o envio.
+- Visualizar PDF: confira o documento em outra aba/visualizador.
+- Baixar arquivo: salve uma cópia.
+
+O segundo toque em Compartilhar é necessário para abrir o menu nativo após a
+geração. Não existe envio automático para um contato. O WhatsApp precisa estar
+instalado e disponível no menu do sistema. Se o navegador não aceitar compartilhar
+arquivos, baixe o PDF e use WhatsApp > Anexar > Documento. No iPhone, o botão de
+compartilhar do visualizador do PDF também pode ser utilizado.
+
+Use a qualidade "Equilibrada" para arquivos menores; "Alta" preserva mais detalhe.
+Os croquis permanecem com resolução própria para conservar as cotas. Todos os
+itens são exportados, independentemente dos filtros da lista.
+
+ZIP COMPLETO
+Inclui PDF, planilha CSV, imagens organizadas por área/item e backup JSON.
+Os números de referência correspondem às fichas do PDF e às pastas dos anexos.
+Se o sistema não compartilhar ZIP, salve o arquivo e anexe como documento.
+O PDF e o backup podem conter os custos de fabricação registrados.
+
+FUNCIONAMENTO OFFLINE
+Abra o app conectado à internet após a atualização para carregar o novo pacote.
+A geração de PDF e ZIP usa bibliotecas e fontes locais, sem serviço de conversão.
+Relatórios grandes, com muitas fotos, consomem mais memória; mantenha o app aberto
+até concluir. Use PDF em qualidade equilibrada se houver pouca memória disponível.
+
+CROQUI
++ / −: ampliar e reduzir entre 100% e 600%.
+Pinça com dois dedos: zoom e deslocamento da folha.
+Mover: arrastar sem desenhar. Ajustar à tela: voltar à visão completa.
+Ajustar (grade): encaixar formas e cotas nas interseções.
+Cota: toque nas extremidades ou arraste; informe medida positiva em mm.
+Texto, cores, espessuras, formas, desfazer/refazer e foto de fundo são preservados.
+No computador: roda do mouse para zoom, Ctrl/Cmd+Z para desfazer,
+Ctrl/Cmd+Shift+Z para refazer. Zoom não altera as medidas do desenho.
+
+BACKUP E RESTAURAÇÃO
+Exporte um backup .JSON ao final de cada visita e guarde fora do navegador.
+A restauração substitui o levantamento após validação e confirmação.
+Aceita backups válidos das versões 2 e 3. A versão 3 inclui a foto de fundo e os
+traços editáveis do croqui. Fotos de fundo ausentes em backups antigos não podem
+ser reconstruídas. A atualização preserva o banco local campo_nr_v2.
+
+ARQUIVO HTML ÚNICO
+Levantamento_Campo_NR12_NR33_NR35.html contém o aplicativo e suas dependências
+embutidas. O uso pelo site HTTPS/GitHub Pages é recomendado, especialmente no
+celular: abrir um HTML diretamente pelo gerenciador de arquivos pode restringir
+armazenamento, câmera e compartilhamento. O index.html é a entrada da PWA.
+
+VERIFICAÇÃO
+Consulte AUDITORIA-PREMIUM-4.md para os testes realizados e suas limitações.
+O envio real pelo WhatsApp e o funcionamento em aparelhos físicos iOS/Android
+precisam ser conferidos no seu aparelho. Não foi realizado envio a contatos.
+Esta entrega é um pacote para atualização manual; não comprova publicação no GitHub.
