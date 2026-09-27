@@ -1,4 +1,4 @@
-# Impacto — auditoria de software Premium 4
+# Impacto — auditoria de software Premium 4.1
 
 Data: 27/09/2026. Base: pacote Premium 3 entregue anteriormente. O banco IndexedDB `campo_nr_v2`, seus quatro repositórios e o formato de backup versão 3 foram preservados.
 
@@ -53,7 +53,7 @@ O app continua local: não oferece sincronização automática entre dispositivo
 
 ## Atualização
 
-Siga `ATUALIZAR-GITHUB.txt`. Envie o pacote completo, preservando `vendor/` e `assets/`. Não substitua apenas `sw.js`. Abra o site conectado após a atualização e confira a identificação PREMIUM 4.
+Siga `ATUALIZAR-GITHUB.txt`. Envie os 18 arquivos do pacote para a raiz do repositório. Esta edição para celular não contém subpastas. Não substitua apenas `sw.js`. Abra o site conectado após a atualização e confira a identificação PREMIUM 4.1.
 
 A publicação no GitHub não foi realizada nesta entrega. O acesso de gravação disponível anteriormente retornou HTTP 403; o ZIP permite atualização manual.
 
@@ -61,7 +61,13 @@ A publicação no GitHub não foi realizada nesta entrega. O acesso de gravaçã
 
 - jsPDF 4.2.1, licença MIT: https://github.com/parallax/jsPDF/releases/tag/v4.2.1
 - fflate 0.8.3, licença MIT: https://github.com/101arrowz/fflate
-- DejaVu Sans regular/negrito; licença incluída em `assets/FONT-LICENSE.txt`.
+- DejaVu Sans regular/negrito; licença incluída em `FONT-LICENSE.txt`.
 - Compartilhamento de arquivos e ativação transitória: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share
 
-As licenças acompanham o pacote em `vendor/` e `assets/`. Nenhum serviço externo recebe os dados para converter o relatório.
+As licenças acompanham o pacote na mesma pasta dos demais arquivos. Nenhum serviço externo recebe os dados para converter o relatório.
+
+## Ajuste da edição 4.1 para celular
+
+Os recursos de PDF, ZIP, interface e croqui da versão 4 foram mantidos. Bibliotecas e fontes agora ficam na raiz, facilitando a seleção de arquivos pelo Android/iPhone. Referências do HTML, carregamento das fontes e cache offline foram atualizados juntos. O novo cache usa `impacto-campo-premium-v4-1`. O banco de dados local não foi renomeado.
+
+Validação adicional da edição 4.1: scripts analisados, 18 arquivos sem subpastas, nenhum recurso HTTP ausente, backup restaurado, dados preservados ao recarregar, fontes/bibliotecas no novo cache e geração real de PDF/ZIP com rede desativada. ZIP gerado conferido por CRC, cabeçalho PDF e conteúdo do backup. Nenhum erro de JavaScript foi registrado.

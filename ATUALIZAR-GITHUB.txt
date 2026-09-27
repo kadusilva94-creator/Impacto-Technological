@@ -1,91 +1,50 @@
-IMPACTO — LEVANTAMENTO DE CAMPO PREMIUM 4
+IMPACTO — PREMIUM 4.1 — ENVIO PELO CELULAR
 
-ANTES DE ATUALIZAR
-No aplicativo atual, abra Exportar e guarde um backup .JSON.
-Os registros ficam neste navegador/aparelho. Não limpe os dados do navegador
-nem desinstale o aplicativo para atualizar. Mantenha o mesmo endereço do site.
+Este pacote contém 18 arquivos, TODOS NA MESMA PASTA. Não há pastas vendor/assets.
+As funções da versão Premium 4 foram preservadas; mudou a organização dos arquivos
+para permitir o envio pelo seletor de arquivos do celular.
 
-ATUALIZAÇÃO MANUAL NO GITHUB
-1. Extraia o ZIP recebido.
-2. Abra github.com/kadusilva94-creator/Impacto-Technological, na aba Code.
-3. Selecione Add file > Upload files.
-4. Envie o CONTEÚDO extraído para a raiz do repositório, preservando as pastas:
-   index.html
-   sw.js
-   manifest.webmanifest
-   pdf-report.js
-   export-center.js
-   vendor/ (bibliotecas e licenças)
-   assets/ (fontes e licença)
-   icone-192.png, icone-512.png, icone-maskable.png
-   Levantamento_Campo_NR12_NR33_NR35.html
-   Os arquivos de instruções e auditoria também podem ser enviados.
-5. Confirme em Commit changes e aguarde a publicação do GitHub Pages.
-6. Abra o endereço habitual do aplicativo conectado à internet. Feche todas
-   as janelas do app e abra novamente. O cabeçalho deve mostrar PREMIUM 4.
-7. Gere um PDF de teste e confira os registros antes da próxima visita.
+COMO ATUALIZAR
+1. Guarde um backup .JSON no aplicativo atual antes de atualizar.
+2. No GitHub, cancele/volte da seleção anterior sem confirmar Commit changes.
+3. Baixe este novo ZIP. Em Meus Arquivos > Downloads, toque nele e escolha Extrair.
+4. No GitHub, abra o repositório Impacto-Technological na raiz, aba Code.
+5. Use Upload files > choose your files. Abra a nova pasta extraída e selecione
+   TODOS os 18 arquivos de dentro dela. O arquivo ZIP fechado não deve ser enviado.
+6. Confirme em Commit changes. Aguarde a publicação do GitHub Pages concluir.
+7. Abra o app conectado à internet. Feche todas as janelas do app e abra novamente.
+   O cabeçalho deve mostrar PREMIUM 4.1.
 
-IMPORTANTE: não basta substituir sw.js ou index.html. As pastas vendor e assets
-e os dois novos arquivos .js são necessários. Não envie apenas o ZIP fechado
-nem crie uma pasta extra acima de index.html. No computador, é possível arrastar
-as pastas inteiras para a página de upload do GitHub.
+Não é necessário apagar arquivos antigos ou pastas anteriores do repositório.
+Os arquivos de mesmo nome serão substituídos pelo novo envio. Não apague o banco
+local, não limpe os dados do navegador e não desinstale o app para atualizar.
+Use o mesmo endereço de sempre para continuar acessando seus levantamentos.
 
 PDF E WHATSAPP
-Exportar > Gerar PDF e compartilhar.
-Aguarde a indicação "Arquivo pronto". O PDF é gerado dentro do app, sem precisar
-abrir uma janela de impressão. Escolha:
-- Compartilhar • WhatsApp: abre o menu de compartilhamento do aparelho.
-  Selecione WhatsApp, o destinatário e confirme o envio.
-- Visualizar PDF: confira o documento em outra aba/visualizador.
-- Baixar arquivo: salve uma cópia.
-
-O segundo toque em Compartilhar é necessário para abrir o menu nativo após a
-geração. Não existe envio automático para um contato. O WhatsApp precisa estar
-instalado e disponível no menu do sistema. Se o navegador não aceitar compartilhar
-arquivos, baixe o PDF e use WhatsApp > Anexar > Documento. No iPhone, o botão de
-compartilhar do visualizador do PDF também pode ser utilizado.
-
-Use a qualidade "Equilibrada" para arquivos menores; "Alta" preserva mais detalhe.
-Os croquis permanecem com resolução própria para conservar as cotas. Todos os
-itens são exportados, independentemente dos filtros da lista.
+Exportar > Gerar PDF e compartilhar > aguardar "Arquivo pronto" > Compartilhar.
+No menu do aparelho, escolha WhatsApp, o destinatário e confirme o envio.
+O PDF também pode ser visualizado ou baixado. Se o menu não aceitar o arquivo,
+baixe o documento e use WhatsApp > Anexar > Documento.
+O segundo toque em Compartilhar é necessário após preparar o arquivo.
 
 ZIP COMPLETO
-Inclui PDF, planilha CSV, imagens organizadas por área/item e backup JSON.
-Os números de referência correspondem às fichas do PDF e às pastas dos anexos.
-Se o sistema não compartilhar ZIP, salve o arquivo e anexe como documento.
-O PDF e o backup podem conter os custos de fabricação registrados.
+Inclui PDF, CSV, imagens por área/item e backup JSON com croquis editáveis.
+Todos os itens são exportados, mesmo com filtros ativos. Os custos registrados
+para fabricação também são incluídos. Use PDF em qualidade equilibrada para
+reduzir o tamanho dos arquivos. O envio real depende do menu do seu aparelho.
 
-FUNCIONAMENTO OFFLINE
-Abra o app conectado à internet após a atualização para carregar o novo pacote.
-A geração de PDF e ZIP usa bibliotecas e fontes locais, sem serviço de conversão.
-Relatórios grandes, com muitas fotos, consomem mais memória; mantenha o app aberto
-até concluir. Use PDF em qualidade equilibrada se houver pouca memória disponível.
+OFFLINE E BACKUP
+Abra o app online após atualizar para que o novo pacote seja armazenado.
+Depois, PDF e ZIP são gerados localmente. Mantenha o app aberto até concluir.
+Exporte um backup .JSON ao final de cada visita. Os dados ficam neste navegador;
+não há sincronização automática entre dispositivos.
+Backups válidos das versões 2 e 3 continuam aceitos.
 
 CROQUI
-+ / −: ampliar e reduzir entre 100% e 600%.
-Pinça com dois dedos: zoom e deslocamento da folha.
-Mover: arrastar sem desenhar. Ajustar à tela: voltar à visão completa.
-Ajustar (grade): encaixar formas e cotas nas interseções.
-Cota: toque nas extremidades ou arraste; informe medida positiva em mm.
-Texto, cores, espessuras, formas, desfazer/refazer e foto de fundo são preservados.
-No computador: roda do mouse para zoom, Ctrl/Cmd+Z para desfazer,
-Ctrl/Cmd+Shift+Z para refazer. Zoom não altera as medidas do desenho.
+Zoom +/−, pinça, mover e ajustar à tela. Cotas positivas em milímetros, formas,
+texto, cores, espessuras, grade, desfazer/refazer e edição sobre foto.
+As coordenadas e cotas permanecem iguais ao ampliar ou reduzir a visualização.
 
-BACKUP E RESTAURAÇÃO
-Exporte um backup .JSON ao final de cada visita e guarde fora do navegador.
-A restauração substitui o levantamento após validação e confirmação.
-Aceita backups válidos das versões 2 e 3. A versão 3 inclui a foto de fundo e os
-traços editáveis do croqui. Fotos de fundo ausentes em backups antigos não podem
-ser reconstruídas. A atualização preserva o banco local campo_nr_v2.
-
-ARQUIVO HTML ÚNICO
-Levantamento_Campo_NR12_NR33_NR35.html contém o aplicativo e suas dependências
-embutidas. O uso pelo site HTTPS/GitHub Pages é recomendado, especialmente no
-celular: abrir um HTML diretamente pelo gerenciador de arquivos pode restringir
-armazenamento, câmera e compartilhamento. O index.html é a entrada da PWA.
-
-VERIFICAÇÃO
-Consulte AUDITORIA-PREMIUM-4.md para os testes realizados e suas limitações.
-O envio real pelo WhatsApp e o funcionamento em aparelhos físicos iOS/Android
-precisam ser conferidos no seu aparelho. Não foi realizado envio a contatos.
-Esta entrega é um pacote para atualização manual; não comprova publicação no GitHub.
+O HTML Levantamento_Campo_NR12_NR33_NR35.html é uma edição autocontida adicional.
+O site/PWA utiliza index.html. Prefira o site HTTPS ao arquivo local no celular.
+Consulte AUDITORIA-PREMIUM-4.md para testes e limitações.
