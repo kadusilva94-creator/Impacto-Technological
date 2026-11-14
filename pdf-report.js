@@ -1,4 +1,4 @@
-/* Impacto Premium 4.1. Local, paginated PDF; no print dialog or remote service. */
+/* Impacto Premium 4.3. Local, paginated PDF; no print dialog or remote service. */
 window.ImpactoPDF = (() => {
   const ink=[22,43,58], muted=[83,102,119], line=[221,229,235], gold=[242,183,5];
   let fontPromise;
@@ -29,7 +29,7 @@ window.ImpactoPDF = (() => {
     doc.addFileToVFS('Regular.ttf',ff[0]);doc.addFont('Regular.ttf','Field','normal');doc.addFileToVFS('Bold.ttf',ff[1]);doc.addFont('Bold.ttf','Field','bold');doc.setFont('Field');
     const meta=data.meta,items=[...data.itens].sort((a,b)=>(a.area||'').localeCompare(b.area||'','pt-BR')||(a.nome||'').localeCompare(b.nome||'','pt-BR'));
     const names=[...new Set(items.map(e=>e.area||'Sem área'))],docId='LEV-'+(meta.data||new Date().toISOString().slice(0,10)).replaceAll('-','');
-    doc.setProperties({title:'Levantamento de campo - '+(meta.planta||meta.cliente||'Impacto'),subject:'Registro técnico de campo',author:meta.responsavel||'Impacto',creator:'Impacto Premium 4.1'});
+    doc.setProperties({title:'Levantamento de campo - '+(meta.planta||meta.cliente||'Impacto'),subject:'Registro técnico de campo',author:meta.responsavel||'Impacto',creator:'Impacto Premium 4.3'});
     let y=24,section='',page=1;
     const font=(size=10,bold=false,color=ink)=>{doc.setFont('Field',bold?'bold':'normal');doc.setFontSize(size);doc.setTextColor(...color);};
     function newPage(title=section){check(signal);doc.addPage();page++;section=title;y=27;font(8,true,muted);doc.text('IMPACTO  /  LEVANTAMENTO DE CAMPO',14,13);font(8,false,muted);doc.text(docId,196,13,{align:'right'});doc.setDrawColor(...line);doc.line(14,17,196,17);if(title){font(8,false,muted);const t=doc.splitTextToSize(clean(title),182);doc.text(t.slice(0,2),14,22);y=23+t.slice(0,2).length*4;}}
@@ -69,7 +69,7 @@ window.ImpactoPDF = (() => {
       if(e.norma==='Fabricação'&&options.costs!==false){title('Estimativa de fabricação');const b=budget(e,meta,data.taxas);table(['Composição','Valor'],[['Mão de obra - '+b.h.toLocaleString('pt-BR')+' h',money(b.mo)],['Materiais, comprados e terceiros',money(b.ins)],['Custo estimado',money(b.cost)],['Preço unitário',money(b.u)],['Total - '+b.q+' unidade(s)',money(b.total)]],[124,58]);}
       field('OBSERVAÇÕES',e.obs);
       const sketches=options.sketches===false?[]:data.croquis.filter(c=>c.itemId===e.id).sort((a,b)=>a.ts-b.ts);
-      for(let i=0;i<sketches.length;i++){check(signal);newPage(head);title('Croqui '+ref+'.'+(i+1));const c=sketches[i];para('Esboço de campo • '+(c.escala==='livre'?'sem escala':c.escala==='1m'?'quadra = 1000 mm':'quadra = 500 mm'),{size:9,color:muted});let im;try{im=await jpeg(c.blob,options.quality==='high'?2200:1800,.91);}catch(err){throw Error('Croqui '+ref+'.'+(i+1)+': '+err.message);}const scale=Math.min(182/im.w,184/im.h),w=im.w*scale,h=im.h*scale;doc.addImage(im.data,'JPEG',14+(182-w)/2,y,w,h,'cq'+ref+'-'+i);y+=h+5;field('COTAS REGISTRADAS',c.cotas?.join('  •  '));field('LEGENDA',c.legenda);await tick();}
+      for(let i=0;i<sketches.length;i++){check(signal);newPage(head);title('Croqui '+ref+'.'+(i+1));const c=sketches[i];para('Esboço de campo • '+(c.escala==='livre'?'sem escala':c.escala==='1m'?'quadra = 1000 mm':'quadra = 500 mm'),{size:9,color:muted});let im;try{im=await jpeg(c.blob,options.quality==='high'?2200:1800,.91);}catch(err){throw Error('Croqui '+ref+'.'+(i+1)+': '+err.message);}const scale=Math.min(182/im.w,184/im.h),w=im.w*scale,h=im.h*scale;doc.addImage(im.data,'JPEG',14+(182-w)/2,y,w,h,'cq'+ref+'-'+i);y+=h+5;field('COTAS REGISTRADAS',c.cotas?.join('  •  '));field('ANOTAÇÕES',c.anotacoes?.join('\n'));field('LEGENDA',c.legenda);await tick();}
       const photos=options.photos===false?[]:data.fotos.filter(f=>f.itemId===e.id).sort((a,b)=>a.ts-b.ts);
       for(let i=0;i<photos.length;i++){check(signal);if(i%2===0){newPage(head);title('Evidências fotográficas');}else space(115);const f=photos[i];let im;try{im=await jpeg(f.blob,options.quality==='high'?1600:1200,options.quality==='high'?.87:.74);}catch(err){throw Error('Foto '+ref+'.'+(i+1)+': '+err.message);}const scale=Math.min(182/im.w,83/im.h),w=im.w*scale,h=im.h*scale;doc.setFillColor(246,248,250);doc.rect(14,y,182,h+2,'F');doc.addImage(im.data,'JPEG',14+(182-w)/2,y+1,w,h,'foto'+ref+'-'+i);y+=h+5;para('Foto '+ref+'.'+(i+1)+' • '+new Date(f.ts||0).toLocaleString('pt-BR'),{size:8,bold:true,color:muted,gap:2});if(f.legenda)para(f.legenda,{size:9,gap:7});else y+=7;await tick();}
     }

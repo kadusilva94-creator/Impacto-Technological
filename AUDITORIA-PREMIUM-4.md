@@ -1,3 +1,47 @@
+# Impacto — atualização Premium 4.3
+
+Data: 14/11/2026. Base: pacote Premium 4.2, conferido com o index publicado no
+repositório do usuário. Banco campo_nr_v2, versão 1, e formato de backup 3 mantidos.
+
+## Alterações desta versão
+
+- Cabeçalho: logo com largura proporcional e nome do aplicativo maior, com regras específicas para telas estreitas.
+- Painel do croqui: grupos Desenhar, Cotar e Editar, seleção acessível, navegação de abas por teclado e ajuda contextual.
+- Forma inteligente: reconhecimento geométrico local por amostragem, ajuste de linhas, polígonos e elipses. Não usa serviços externos. Casos incertos conservam o desenho original.
+- Retorno ao traço original após reconhecimento; histórico de desfazer/refazer preservado.
+- Cotas: linear, Ø diâmetro, R raio e anotação com seta. Distinção visual das setas, centro do raio e extensões lineares.
+- Anotação de até 500 caracteres e 12 linhas, com quebra de palavras, caixa de texto dentro da folha, recorte de exportação incluindo toda a caixa e exclusão por toque no texto.
+- Cotas numéricas e anotações separadas no registro salvo, PDF, HTML e CSV. Backup preserva o subtipo da cota e o texto.
+- Formas reconhecidas usam os tipos anteriores do desenho; nenhuma migração destrutiva é necessária. Backups de versões anteriores continuam aceitos.
+- Cache PWA atualizado para v4-3; HTML autocontido regenerado a partir do mesmo index.
+
+## Verificação executada em 14/11/2026
+
+- 17 casos de reconhecimento: linhas com ruído, retângulo, quadrado, retângulo girado, triângulo, círculo, elipse e elipse girada. Arco incompleto, L aberto, zigue-zague, oito, duas voltas, ponto e pentágono não foram convertidos indevidamente. Contorno quase fechado também foi reconhecido.
+- Código real dos manipuladores de eventos executado em Node com Canvas nativo e interface simulada: reconhecimento, manter à mão livre, desfazer/refazer, quatro tipos de cota, dois toques, rejeição de zero, cancelar diálogo, salvar, reabrir, apagar pela caixa de anotação, grade, zoom e cancelamento do traço por segundo toque.
+- Renderização de croqui com fundo raster e de croqui salvo em JPEG.
+- Validador real de backup aceitou cotas novas e lineares anteriores; subtipo inválido foi rejeitado.
+- PDF real de quatro páginas gerado com jsPDF e fontes locais, texto extraído com acentos, Ø e R, e página de croqui renderizada e conferida visualmente. Anotação completa, sem corte.
+- CSV e JSON gerados pelas funções do app; texto da anotação e subtipos preservados.
+- Sintaxe dos scripts e integridade do pacote conferidas.
+
+Limitação: o navegador local não iniciou por restrição do ambiente. O navegador
+remoto não alcançou a prévia local. Por isso, não se declara teste de interface
+visual nem Web Share em navegador nesta versão, tampouco em iPhone/Android físico.
+A interface simulada não substitui essa conferência. Os testes históricos abaixo
+referem-se à versão 4.2; o fluxo nativo de compartilhamento foi preservado.
+
+## Sugestões de uso
+
+Em campo, use zoom antes de marcar cotas pequenas. Faça uma forma por gesto e
+confirme a forma reconhecida; mantenha à mão livre quando precisar de contornos
+irregulares. Informe as medidas reais conferidas. Uma foto sem referência de
+escala não permite deduzir o tamanho físico do objeto.
+
+---
+
+## Histórico de auditoria da versão anterior
+
 # Impacto — auditoria de software Premium 4.2
 
 Data: 27/09/2026. Base: pacote Premium 3 entregue anteriormente. O banco IndexedDB `campo_nr_v2`, seus quatro repositórios e o formato de backup versão 3 foram preservados.

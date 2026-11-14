@@ -80,7 +80,7 @@ async function exportBackup(d,signal,progress=()=>{}){
 }
 function snapshotCsv(d){
   const cell=v=>'"'+String(v??'').replace(/^(\s*[=+@-])/,"'$1").replaceAll('"','""')+'"';
-  const rows=[['Ref.',...COLS.map(x=>x[0]),'Fotos','Croquis','Cotas','Custo estimado (R$)','Preço unitário (R$)','Preço total (R$)']];d.itens.forEach((e,i)=>rows.push([String(i+1).padStart(3,'0'),...COLS.map(x=>valor(e,x[1])),d.fotos.filter(f=>f.itemId===e.id).length,d.croquis.filter(c=>c.itemId===e.id).length,d.croquis.filter(c=>c.itemId===e.id).flatMap(c=>c.cotas||[]).join(' | '),...(e.norma==='Fabricação'?['cost','u','total'].map(k=>ImpactoPDF.budget(e,d.meta,d.taxas)[k].toFixed(2).replace('.',',')):['','',''])]));return new Blob(['\ufeff'+rows.map(r=>r.map(cell).join(';')).join('\r\n')],{type:'text/csv;charset=utf-8'});
+  const rows=[['Ref.',...COLS.map(x=>x[0]),'Fotos','Croquis','Cotas','Anotações do croqui','Custo estimado (R$)','Preço unitário (R$)','Preço total (R$)']];d.itens.forEach((e,i)=>rows.push([String(i+1).padStart(3,'0'),...COLS.map(x=>valor(e,x[1])),d.fotos.filter(f=>f.itemId===e.id).length,d.croquis.filter(c=>c.itemId===e.id).length,d.croquis.filter(c=>c.itemId===e.id).flatMap(c=>c.cotas||[]).join(' | '),d.croquis.filter(c=>c.itemId===e.id).flatMap(c=>c.anotacoes||[]).join(' | '),...(e.norma==='Fabricação'?['cost','u','total'].map(k=>ImpactoPDF.budget(e,d.meta,d.taxas)[k].toFixed(2).replace('.',',')):['','',''])]));return new Blob(['\ufeff'+rows.map(r=>r.map(cell).join(';')).join('\r\n')],{type:'text/csv;charset=utf-8'});
 }
 async function exportZip(d,options,progress,signal){
   if(!window.fflate)throw Error('O componente de ZIP não foi carregado. Atualize o aplicativo conectado à internet.');

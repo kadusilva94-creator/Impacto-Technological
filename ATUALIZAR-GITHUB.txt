@@ -1,25 +1,53 @@
-IMPACTO — PREMIUM 4.2 — CORREÇÃO DO FLUXO DE COMPARTILHAMENTO
+IMPACTO — PREMIUM 4.3 — CROQUI INTELIGENTE E NOVAS COTAS
 
-Este pacote contém 18 arquivos, todos na mesma pasta, como a versão 4.1.
+Este pacote contém 18 arquivos, todos na mesma pasta.
 
 ATUALIZAR PELO CELULAR
 1. Guarde um backup .JSON no aplicativo atual.
 2. Baixe este ZIP e escolha Extrair em Meus Arquivos > Downloads.
 3. No GitHub, abra a raiz do repositório Impacto-Technological e use Upload files.
-4. Entre na nova pasta extraída e selecione TODOS os 18 arquivos. Não envie o ZIP fechado.
+4. Selecione TODOS os 18 arquivos extraídos. Não envie o ZIP fechado.
 5. Confirme em Commit changes e aguarde a publicação do GitHub Pages.
 6. Abra o app conectado à internet; feche todas as janelas do app e abra novamente.
-   O cabeçalho deve mostrar PREMIUM 4.2.
+   O cabeçalho deve mostrar PREMIUM 4.3.
 
 Mantenha o mesmo endereço do site. Não limpe o armazenamento do navegador nem
 reinstale o app para atualizar. Não é necessário apagar arquivos do repositório.
 
-O QUE FOI AJUSTADO
-O compartilhamento normal de PDF mantém o mesmo gerador e a chamada ao menu nativo.
-Ao gerar ZIP, o aplicativo identifica se o navegador aceita compartilhar esse formato.
-- Se aceitar: mostra Compartilhar ZIP.
-- Se não aceitar: mostra Salvar ZIP no aparelho e os passos para enviar por Arquivos.
-Não há download automático nem tentativa de disfarçar o formato do ZIP.
+NOVIDADES
+- Logo da Impacto maior e nome Levantamento de Campo mais legível e proporcional.
+- Ferramentas do croqui organizadas em Desenhar, Cotar e Editar.
+- Forma inteligente reconhece linhas, retângulos, quadrados, círculos, elipses
+  e triângulos. Funciona no croqui em branco e sobre fotos, sem internet.
+- Cotas lineares, diâmetro (Ø), raio (R) e anotação livre com seta.
+- Anotações aparecem no desenho, no PDF, no relatório HTML, no CSV e no backup.
+
+COMO USAR A FORMA INTELIGENTE
+No croqui, abra Desenhar > Inteligente. Faça uma forma por vez em um traço
+contínuo e solte o dedo, mouse ou caneta. Feche o contorno de círculos e polígonos.
+Se a forma for reconhecida, o app regulariza o desenho. Toque em Manter à mão
+livre para recuperar o traço original. Traços incertos permanecem à mão livre.
+É reconhecimento de geometria básica; não interpreta equipamentos nem textos.
+O modo Livre continua disponível. Zoom, cores, espessura e desfazer funcionam
+com as novas formas. No modo inteligente, a grade não prende os pontos.
+
+COMO COTAR
+Abra Cotar e escolha:
+- Linear: marque as duas extremidades da distância.
+- Diâmetro: marque os lados opostos do círculo, passando pelo centro.
+- Raio: marque o centro e depois a borda.
+- Anotação: marque o ponto para o qual a seta deve apontar; depois marque o
+  local do texto e escreva sua observação (até 500 caracteres e 12 linhas).
+Você pode marcar com dois toques ou arrastar entre os pontos.
+As medidas são informadas em milímetros. Ø e R são acrescentados automaticamente.
+Fotos não fornecem medidas reais automaticamente. Quando uma escala for definida,
+o app sugere um valor geométrico; confira com a medição feita em campo.
+
+EDITAR
+Mover permite deslocar a visualização. Apagar remove um traço ou anotação; toque
+na linha ou na caixa de texto. Desfazer e Refazer permitem corrigir as operações.
+Grade ajusta os pontos das formas e cotas. Limpar pede confirmação.
+As abas organizam os botões; a ferramenta ativa continua indicada na ajuda.
 
 COMO ENVIAR O ZIP NO CHROME/ANDROID
 A implementação atual do Chrome para Android permite PDF, mas não inclui ZIP
@@ -53,8 +81,11 @@ Arquivos grandes continuam sujeitos à memória e aos limites do dispositivo.
 O PDF, o ZIP e o backup incluem todos os itens, mesmo com filtros ativos, inclusive
 os custos de fabricação registrados. O backup mantém as formas e fotos de fundo.
 
-TESTES
-Fluxos de ZIP permitido/bloqueado, cancelamento, erro nativo e solicitação que não
-conclui foram simulados em Chromium com tela de celular. PDF e ZIP reais foram
-gerados offline. Não foi enviado arquivo para WhatsApp real.
-Veja AUDITORIA-PREMIUM-4.md para detalhes e referências.
+
+VERIFICAÇÕES DESTA VERSÃO
+Reconhecimento e eventos de desenho, cotas, anotação, desfazer/refazer, zoom,
+cancelamento por pinça, salvamento e validação do backup foram exercitados em
+um ambiente de teste com Canvas nativo e interface simulada. O PDF foi gerado,
+extraído e renderizado para conferência. A inspeção da tela em navegador e em
+celulares físicos não pôde ser concluída neste ambiente. Confira os controles
+no seu aparelho após atualizar. Veja AUDITORIA-PREMIUM-4.md.
