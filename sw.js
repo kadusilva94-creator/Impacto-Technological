@@ -1,6 +1,6 @@
-/* Premium 4.4.5: complete offline shell, navigation network-first. */
-const CACHE='impacto-campo-premium-v4-4-5';
-const ARQUIVOS=['./','./index.html','./handwriting-worker.js?v=4.4.5','./manifest.webmanifest','./icone-192.png','./icone-512.png','./icone-maskable.png','./jspdf.umd.min.js','./fflate.min.js','./pdf-report.js','./export-center.js','./DejaVuSans.ttf','./DejaVuSans-Bold.ttf'];
+/* Premium 4.4.6: complete offline shell, navigation network-first. */
+const CACHE='impacto-campo-premium-v4-4-6';
+const ARQUIVOS=['./','./index.html','./handwriting-worker.js?v=4.4.6','./manifest.webmanifest','./icone-192.png','./icone-512.png','./icone-maskable.png','./jspdf.umd.min.js','./fflate.min.js','./pdf-report.js','./export-center.js','./DejaVuSans.ttf','./DejaVuSans-Bold.ttf'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ARQUIVOS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&(['levantamento-v1','levantamento-v2','levantamento-v3-premium'].includes(k)||k.startsWith('impacto-campo-premium-'))).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
